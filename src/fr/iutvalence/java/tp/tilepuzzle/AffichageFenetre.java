@@ -22,6 +22,16 @@ public class AffichageFenetre implements Runnable, Affichage
 	private final int largeurGrille;
 	
 	/**
+	 * Fenetre de l'application
+	 */
+	private JFrame fenetre;
+	
+	/**
+	 * Panneau principal de l'application
+	 */
+	private JPanel panneau;
+	
+	/**
 	 * @param plateau Plateau servant  à initialiser l'affichage
 	 */
 	public AffichageFenetre(Plateau plateau)
@@ -33,25 +43,39 @@ public class AffichageFenetre implements Runnable, Affichage
 	@Override
 	public void run()
 	{
-		JFrame fenetre = new JFrame();
-		fenetre.setTitle("Tile Puzzle");
-		fenetre.setSize(500, 500);
-		fenetre.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		this.fenetre = new JFrame();
+		this.fenetre.setTitle("Tile Puzzle");
+		this.fenetre.setSize(500, 500);
+		this.fenetre.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
-		JPanel panneau = new JPanel();
+		this.panneau = new JPanel();
 		
-		fenetre.add(panneau);
-		panneau.setLayout(new GridLayout(this.largeurGrille,this.hauteurGrille));
+		this.fenetre.add(this.panneau);
+		this.panneau.setLayout(new GridLayout(this.largeurGrille,this.hauteurGrille));
 		
 		
 		
-		fenetre.setVisible(true);
+		this.fenetre.setVisible(true);
 	}
 	
 	@Override
 	public void afficherPlateau(Plateau plateau)
 	{
-		
+		this.panneau.removeAll();
+		for (int ligne = 0; ligne < this.hauteurGrille; ligne++)
+		{
+			for (int colonne = 0; colonne < this.largeurGrille; colonne++)
+			{
+				if (plateau.estCaseAllumee(new Position(ligne, colonne)))
+				{
+					this.panneau.add(new JButtonCase(new Position(ligne, colonne),true));
+				}
+				else
+				{
+					this.panneau.add(new JButtonCase(new Position(ligne, colonne),false));
+				}
+			}
+		}
 	}
 
 	@Override

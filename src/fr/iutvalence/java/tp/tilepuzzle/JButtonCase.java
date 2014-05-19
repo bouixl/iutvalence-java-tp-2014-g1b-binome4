@@ -13,12 +13,19 @@ public class JButtonCase extends JButton implements ActionListener
 	private final Position position;
 	
 	/**
+	 * Etat du bouton
+	 */
+	private boolean etat;
+	
+	/**
 	 * Crée un bouton pour la position indiquée
 	 * @param position position qui sera enregistrée sur le bouton
+	 * @param etat etat du bouton à sa création
 	 */
-	public JButtonCase(Position position)
+	public JButtonCase(Position position, boolean etat)
 	{
 		this.position = position;
+		changerEtat(etat);
 		this.addActionListener(this);
 	}
 	
@@ -34,6 +41,23 @@ public class JButtonCase extends JButton implements ActionListener
 	public void actionPerformed(ActionEvent arg0)
 	{
 		
+	}
+
+	/**
+	 * @return l'etat
+	 */
+	public boolean obtenirEtat()
+	{
+		return this.etat;
+	}
+
+	/**
+	 * Inverse l'état du bouton
+	 * @param etat Etat a assigner au bouton
+	 */
+	public void changerEtat(boolean etat)
+	{
+		this.etat = etat;
 	}
 	
 }
