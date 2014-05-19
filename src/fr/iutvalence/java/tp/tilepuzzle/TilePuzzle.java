@@ -5,7 +5,6 @@ package fr.iutvalence.java.tp.tilepuzzle;
  */
 public class TilePuzzle
 {
-
 	/**
 	 * Plateau
 	 */
@@ -25,13 +24,13 @@ public class TilePuzzle
 	 * Crée une partie prête à être jouée.
 	 * Cela implique la mise en place d'un plateau et d'un joueur pour cette partie.
 	 * @param joueur Joueur a utiliser
-	 * @param fdp Fabrique de plateau utilisée pour la partie
+	 * @param plateau plateau à utiliser
 	 * @param affichage Affichage a utiliser
 	 */
-	public TilePuzzle(Joueur joueur, FabriqueDePlateau fdp, Affichage affichage)
+	public TilePuzzle(Joueur joueur, Plateau plateau, Affichage affichage)
 	{
 		// TODO définir des constantes
-		this.plateau = fdp.obtenirPlateauDefini(3, 3, 10);
+		this.plateau = plateau;
 		this.joueur = joueur;
 		this.affichage = affichage;
 	}

@@ -8,13 +8,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class FabriqueDePlateauAvecFichier implements FabriqueDePlateau
 {
 
-	/*
+	/**
 	 * Chemin du fichier contenant le plateau
 	 */
 	private final static String FICHIER = "plateau";
@@ -81,6 +80,16 @@ public class FabriqueDePlateauAvecFichier implements FabriqueDePlateau
 		
 		// TODO: Ajouter le remplissage des cases du tableau
 		// TODO : attention, en cas d'erreur il serait plus judicieux de retourner null
+		
+		try
+		{
+			fileReader.close();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return plateau;
 	}
