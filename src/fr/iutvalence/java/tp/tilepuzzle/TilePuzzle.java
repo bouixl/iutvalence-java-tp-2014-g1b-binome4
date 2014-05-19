@@ -40,9 +40,9 @@ public class TilePuzzle
 	 */
 	public void jouer()
 	{
+		this.affichage.afficherPlateau(this.plateau);
 		while (this.plateau.obtenirNombreDeCasesAllumees() < this.plateau.obtenirHauteur()*this.plateau.obtenirLargeur())
 		{
-			this.affichage.afficherPlateau(this.plateau);
 			this.affichage.afficherDemandePosition();
 			this.plateau.inverserCasesAutourDe(this.joueur.getPosition(this.plateau.obtenirHauteur(),this.plateau.obtenirLargeur()));
 		}

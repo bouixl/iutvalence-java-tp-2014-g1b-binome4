@@ -7,6 +7,12 @@ public interface Affichage
 {
 	
 	/**
+	 * Renvoie si l'interface est prete a être utilise ou non
+	 * @return etat de l'interface
+	 */
+	public boolean obtenirPret();
+	
+	/**
 	 * Affiche la demande de position
 	 */
 	public void afficherDemandePosition();

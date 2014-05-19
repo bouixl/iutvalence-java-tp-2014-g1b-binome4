@@ -40,4 +40,10 @@ public class AffichageConsole implements Affichage
 
 	}
 
+	@Override
+	public boolean obtenirPret()
+	{
+		return true;		
+	}
+
 }

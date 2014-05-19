@@ -26,10 +26,16 @@ public class LanceurDeTilePuzzle
 		Plateau plateau = fdp.obtenirPlateauDefini(3, 3, 10);
 		
 		Affichage affichage = new AffichageFenetre(plateau);
+		
+		// TODO: Retirer ça
+		Affichage affichageDebug = new AffichageConsole();
+		affichageDebug.afficherPlateau(plateau);
+		
 		SwingUtilities.invokeLater((Runnable) affichage);
 		
 		TilePuzzle partieDeTilePuzzle = new TilePuzzle(joueur, plateau, affichage);
 		System.out.println("Demarrage de la partie");
+		while(!affichage.obtenirPret()) { }
 		partieDeTilePuzzle.jouer();
 		System.out.println("Fin de la partie");
 	}

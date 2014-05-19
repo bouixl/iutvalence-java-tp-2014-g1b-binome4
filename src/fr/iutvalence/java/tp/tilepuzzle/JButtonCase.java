@@ -1,5 +1,6 @@
 package fr.iutvalence.java.tp.tilepuzzle;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -58,6 +59,14 @@ public class JButtonCase extends JButton implements ActionListener
 	public void changerEtat(boolean etat)
 	{
 		this.etat = etat;
+		if(this.etat)
+		{
+			this.setBackground(new Color(0,255,0));
+		}
+		else
+		{
+			this.setBackground(new Color(255,0,0));
+		}
 	}
 	
 }

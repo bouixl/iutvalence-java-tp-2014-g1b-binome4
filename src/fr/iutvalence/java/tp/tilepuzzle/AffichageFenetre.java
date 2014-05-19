@@ -31,21 +31,34 @@ public class AffichageFenetre implements Runnable, Affichage
 	 */
 	private JPanel panneau;
 	
+	/** 
+	 * Indicateur d'état de l'interface graphique
+	 */
+	private boolean pret;
+	
 	/**
 	 * @param plateau Plateau servant  à initialiser l'affichage
 	 */
 	public AffichageFenetre(Plateau plateau)
 	{
+		this.pret = false;
 		this.hauteurGrille = plateau.obtenirHauteur();
 		this.largeurGrille = plateau.obtenirLargeur();
 	}
 	
+	@Override
+	public boolean obtenirPret()
+	{
+		return this.pret;
+	}
+
 	@Override
 	public void run()
 	{
 		this.fenetre = new JFrame();
 		this.fenetre.setTitle("Tile Puzzle");
 		this.fenetre.setSize(500, 500);
+		this.fenetre.setResizable(false);
 		this.fenetre.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
 		this.panneau = new JPanel();
@@ -53,9 +66,9 @@ public class AffichageFenetre implements Runnable, Affichage
 		this.fenetre.add(this.panneau);
 		this.panneau.setLayout(new GridLayout(this.largeurGrille,this.hauteurGrille));
 		
-		
-		
 		this.fenetre.setVisible(true);
+		
+		this.pret = true;
 	}
 	
 	@Override
