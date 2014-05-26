@@ -46,4 +46,10 @@ public class AffichageConsole implements Affichage
 		return true;		
 	}
 
+	@Override
+	public void victoire(int coups)
+	{
+		System.out.println("Vous avez gagné en "+coups+"coups.");
+	}
+
 }

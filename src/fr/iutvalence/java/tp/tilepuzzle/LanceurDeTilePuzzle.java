@@ -20,16 +20,13 @@ public class LanceurDeTilePuzzle
 	public static void main(String[] args)
 	{
 		System.out.println("Création de la partie");
-		Joueur joueur = new JoueurClavier();
 		
 		FabriqueDePlateau fdp = new FabriqueDePlateauAleatoire();
-		Plateau plateau = fdp.obtenirPlateauDefini(3, 3, 10);
+		Plateau plateau = fdp.obtenirPlateauDefini(3,3,0);
 		
 		Affichage affichage = new AffichageFenetre(plateau);
 		
-		// TODO: Retirer ça
-		Affichage affichageDebug = new AffichageConsole();
-		affichageDebug.afficherPlateau(plateau);
+		Joueur joueur = (Joueur) affichage;
 		
 		SwingUtilities.invokeLater((Runnable) affichage);
 		
@@ -38,5 +35,6 @@ public class LanceurDeTilePuzzle
 		while(!affichage.obtenirPret()) { }
 		partieDeTilePuzzle.jouer();
 		System.out.println("Fin de la partie");
+	
 	}
 }

@@ -22,4 +22,10 @@ public interface Affichage
 	 * @param plateau Plateau a afficher
 	 */
 	public void afficherPlateau(Plateau plateau);
+
+	/**
+	 * Affiche le message de victoires et le nombre de coups effectués
+	 * @param coups nombre de coups effectués
+	 */
+	public void victoire(int coups);
 }

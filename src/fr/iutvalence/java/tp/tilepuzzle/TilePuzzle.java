@@ -21,6 +21,11 @@ public class TilePuzzle
 	private final Affichage affichage;
 	
 	/**
+	 * Nombre de coups effectuées
+	 */
+	private int coups;
+	
+	/**
 	 * Crée une partie prête à être jouée.
 	 * Cela implique la mise en place d'un plateau et d'un joueur pour cette partie.
 	 * @param joueur Joueur a utiliser
@@ -33,6 +38,7 @@ public class TilePuzzle
 		this.plateau = plateau;
 		this.joueur = joueur;
 		this.affichage = affichage;
+		this.coups = 0;
 	}
 
 	/**
@@ -40,11 +46,14 @@ public class TilePuzzle
 	 */
 	public void jouer()
 	{
-		this.affichage.afficherPlateau(this.plateau);
 		while (this.plateau.obtenirNombreDeCasesAllumees() < this.plateau.obtenirHauteur()*this.plateau.obtenirLargeur())
 		{
+			this.affichage.afficherPlateau(this.plateau);
 			this.affichage.afficherDemandePosition();
 			this.plateau.inverserCasesAutourDe(this.joueur.getPosition(this.plateau.obtenirHauteur(),this.plateau.obtenirLargeur()));
+			this.coups++;
 		}
+		this.affichage.afficherPlateau(this.plateau);
+		this.affichage.victoire(this.coups);
 	}
 }
