@@ -22,7 +22,7 @@ public class LanceurDeTilePuzzle
 		System.out.println("Création de la partie");
 		
 		FabriqueDePlateau fdp = new FabriqueDePlateauAleatoire();
-		Plateau plateau = fdp.obtenirPlateauDefini(3,3,0);
+		Plateau plateau = fdp.obtenirPlateauDefini(3, 3, 7);
 		
 		Affichage affichage = new AffichageFenetre(plateau);
 		

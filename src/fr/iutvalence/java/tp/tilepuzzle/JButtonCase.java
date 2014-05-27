@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+/**
+ * @author bouixl
+ * Bouton étendu, associé à une Position et immédiatemment surveillé par un ActionListener.
+ */
 public class JButtonCase extends JButton
 {
 	/**

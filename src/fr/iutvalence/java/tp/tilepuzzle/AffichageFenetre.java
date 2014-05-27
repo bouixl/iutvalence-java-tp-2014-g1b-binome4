@@ -39,11 +39,6 @@ public class AffichageFenetre implements Runnable, Affichage, Joueur, ActionList
 	private JPanel panneau;
 	
 	/**
-	 * Bouton "Nouvelle Partie" dans le menu
-	 */
-	private JMenuItem menuItemNouvellePartie;
-	
-	/**
 	 * Bouton "A Propos" dans le menu
 	 */
 	private JMenuItem menuItemAPropos;
@@ -96,10 +91,6 @@ public class AffichageFenetre implements Runnable, Affichage, Joueur, ActionList
 
 		JMenuBar barreDeMenu = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
-		
-		this.menuItemNouvellePartie = new JMenuItem("Nouvelle Partie");
-		this.menuItemNouvellePartie.addActionListener(this);
-		menu.add(this.menuItemNouvellePartie);
 		
 		this.menuItemAPropos = new JMenuItem("A propos");
 		this.menuItemAPropos.addActionListener(this);
